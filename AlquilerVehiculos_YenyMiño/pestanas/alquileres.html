@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquileres Meyana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Alquileres y Devoluciones -->
+
+    <section id="alquileres" class="seccion-pendiente seccion-privada">
+
+        <div class="encabezado-seccion">
+
+            <p class="etiqueta">MEYANA RENTALS</p>
+
+            <h2>Alquileres y devoluciones</h2>
+
+            <p>
+                Registrá los alquileres y controlá las devoluciones
+                de vehículos.
+            </p>
+
+        </div>
+
+        <div id="divListaAlquileres">
+
+            <div class="acciones-gestion">
+
+                <input type="text" id="txtFiltroAlquiler" placeholder="Buscar por cliente o vehículo"
+                    oninput="fnFiltrarAlquileres()">
+
+                <button type="button" onclick="fnNuevoAlquiler()">
+                    Nuevo alquiler
+                </button>
+
+            </div>
+
+            <div id="divTablaAlquileres"></div>
+
+        </div>
+
+        <div id="divFormAlquiler" style="display: none;">
+
+            <h3>Registrar alquiler</h3>
+
+            <form onsubmit="fnGuardarAlquiler(event)">
+
+                <div class="form-grid">
+
+                    <div class="campo-formulario">
+                        <label for="selClienteAlquiler">Cliente</label>
+
+                        <select id="selClienteAlquiler" required>
+                            <option value="">
+                                Seleccionar cliente
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="selVehiculoAlquiler">
+                            Vehículo disponible
+                        </label>
+
+                        <select id="selVehiculoAlquiler" required onchange="fnCalcularTotalAlquiler()">
+                            <option value="">
+                                Seleccionar vehículo
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtFechaAlquiler">
+                            Fecha de alquiler
+                        </label>
+
+                        <input type="date" id="txtFechaAlquiler" required onchange="fnCalcularTotalAlquiler()">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtFechaDevolucion">
+                            Devolución prevista
+                        </label>
+
+                        <input type="date" id="txtFechaDevolucion" required onchange="fnCalcularTotalAlquiler()">
+                    </div>
+
+                </div>
+
+                <div id="resumenAlquiler" class="resumen-alquiler">
+                    Seleccioná un vehículo y las fechas para calcular
+                    el precio.
+                </div>
+
+                <div class="acciones-gestion">
+
+                    <button type="submit">
+                        Confirmar alquiler
+                    </button>
+
+                    <button type="button" class="boton-secundario" onclick="fnCancelarAlquiler()">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <script src="../js/storage.js" defer></script>
+    <script src="../js/alquileres.js" defer></script>
+    <script src="../js/main.js" defer></script>
+
+</body>
+
+</html>

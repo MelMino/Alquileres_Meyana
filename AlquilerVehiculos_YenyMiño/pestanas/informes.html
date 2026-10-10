@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes Meyana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+       <!-- Informes -->
+
+        <section id="informes" class="seccion-pendiente seccion-privada">
+
+            <div class="encabezado-seccion">
+
+                <p class="etiqueta">CONTROL Y SEGUIMIENTO</p>
+
+                <h2>Informes</h2>
+
+                <p>
+                    Consultá los alquileres registrados y las devoluciones
+                    pendientes.
+                </p>
+
+            </div>
+
+            <div class="bloque-informe">
+
+                <h3>Alquileres por período</h3>
+
+                <p>
+                    Seleccioná las fechas para consultar los alquileres
+                    iniciados durante ese período.
+                </p>
+
+                <form class="filtros-informe" onsubmit="fnGenerarInformeFechas(event)">
+
+                    <div class="campo-formulario">
+                        <label for="txtInformeDesde">Desde</label>
+                        <input type="date" id="txtInformeDesde" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtInformeHasta">Hasta</label>
+                        <input type="date" id="txtInformeHasta" required>
+                    </div>
+
+                    <button type="submit">
+                        Generar informe
+                    </button>
+
+                </form>
+
+                <div id="resultadoInformeFechas"></div>
+
+            </div>
+
+            <div class="bloque-informe">
+
+                <h3>Devoluciones vencidas</h3>
+
+                <p>
+                    Consultá los alquileres activos cuya fecha prevista
+                    de devolución ya pasó.
+                </p>
+
+                <button type="button" onclick="fnGenerarInformeVencidos()">
+                    Consultar vencimientos
+                </button>
+
+                <div id="resultadoInformeVencidos"></div>
+
+            </div>
+
+        </section>
+
+            <script src="../js/storage.js" defer></script>
+    <script src="../js/informes.js" defer></script>
+    <script src="../js/main.js" defer></script>
+
+    
+</body>
+</html>

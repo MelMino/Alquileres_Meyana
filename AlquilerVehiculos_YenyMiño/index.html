@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meyana | Alquiler de vehículos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!--LOGIN-->
+
+    <section id="pantallaLogin" class="pantalla-login">
+        <div class="tarjeta-login">
+
+            <a href="#inicio" class="logo logo-login">
+                <span class="logo-nombre">Meyana</span>
+                <span class="logo-subtitulo">Alquiler de vehículos</span>
+            </a>
+
+            <p>Ingresá tus datos para acceder al sistema.</p>
+
+            <form id="formLogin" onsubmit="fnIniciarSesion(event)">
+
+                <div class="campo-formulario">
+                    <label for="txtUsuarioLogin">Usuario</label>
+                    <input type="text" id="txtUsuarioLogin" autocomplete="username" required>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="txtPasswordLogin">Contraseña</label>
+                    <input type="password" id="txtPasswordLogin" autocomplete="current-password" required>
+                </div>
+
+                <p id="mensajeLogin" class="mensaje-login"></p>
+
+                <button type="submit" class="boton-principal">
+                    Iniciar sesión
+                </button>
+
+            </form>
+
+
+            <button type="button" class="login-volver" onclick="fnVolverAlCatalogo()">
+                <span aria-hidden="true">←</span>
+                Volver al inicio
+            </button>
+
+
+        </div>
+    </section>
+
+    <div id="contenidoSistema">
+
+        <!-- MENÚ DE NAVEGACIÓN -->
+
+        <header class="menu">
+
+            <a href="#inicio" class="logo">
+                <span class="logo-nombre">Meyana</span>
+                <span class="logo-subtitulo">Alquiler de vehículos</span>
+            </a>
+
+            <nav class="navegacion">
+                <a href="#inicio" onclick="fnMostrarPestana('inicio')">
+                    Inicio
+                </a>
+
+                <a href="#vehiculos" onclick="fnMostrarPestana('vehiculos')">
+                    Vehículos
+                </a>
+                <a href="#administracion" onclick="fnAccederSeccion(event, 'administracion')">
+                    Administración
+                </a>
+
+                <a href="#clientes" onclick="fnAccederSeccion(event, 'clientes')">
+                    Clientes
+                </a>
+
+                <a href="#alquileres" onclick="fnAccederSeccion(event, 'alquileres')">
+                    Alquileres
+                </a>
+
+                <a href="#informes" onclick="fnAccederSeccion(event, 'informes')">
+                    Informes
+                </a>
+
+                <a href="#usuario" onclick="fnAccederSeccion(event, 'usuario')">
+                    Usuarios
+                </a>
+
+            </nav>
+
+        </header>
+
+
+        <!--INICIO-->
+
+        <section class="presentacion" id="inicio">
+
+            <div class="presentacion-texto">
+
+                <p class="etiqueta">TU PRÓXIMO VIAJE COMIENZA AQUÍ</p>
+
+                <h1>Encontrá el vehículo ideal para vos</h1>
+
+                <p>
+                    Explorá nuestro catálogo y elegí el vehículo
+                    que mejor se adapte a tu próximo destino.
+                </p>
+
+                <a href="#vehiculos" class="boton-principal">
+                    Explorar vehículos
+                </a>
+
+            </div>
+
+            <div class="presentacion-imagen">
+                <img src="imagenes/gatoo.jpeg" alt="Vehículo destacado de Meyana">
+            </div>
+
+        </section>
+
+        <!--CATALOGO-->
+
+        <main id="vehiculos">
+
+            <section class="seccion-catalogo">
+
+                <div class="encabezado-seccion">
+
+                    <p class="etiqueta">NUESTRO CATÁLOGO</p>
+
+                    <h2>Vehículos disponibles</h2>
+
+                    <p>
+                        Encontrá opciones para tus viajes y actividades.
+                    </p>
+
+                </div>
+
+                <div class="filtros">
+
+                    <div class="campo-filtro">
+
+                        <label for="txtDisponibilidad">
+                            Disponibilidad
+                        </label>
+
+                        <select id="txtDisponibilidad" onchange="fnFiltrarVehiculos()">
+                            <option value="todos">Todos</option>
+                            <option value="disponibles">Disponibles</option>
+                            <option value="noDisponibles">No disponibles</option>
+                        </select>
+
+                    </div>
+
+                    <div class="campo-filtro">
+
+                        <label for="txtMarcaFiltro">Marca</label>
+
+                        <input type="text" id="txtMarcaFiltro" placeholder="Ej.: Hyundai"
+                            oninput="fnFiltrarVehiculos()">
+
+                    </div>
+
+                    <div class="campo-filtro">
+
+                        <label for="txtModeloFiltro">Modelo</label>
+
+                        <input type="text" id="txtModeloFiltro" placeholder="Ej.: HB20" oninput="fnFiltrarVehiculos()">
+
+                    </div>
+
+                    <div class="campo-filtro">
+
+                        <label for="txtAnioFiltro">Año</label>
+
+                        <input type="number" id="txtAnioFiltro" placeholder="Ej.: 2023" oninput="fnFiltrarVehiculos()">
+
+                    </div>
+
+                    <button type="button" class="boton-secundario" onclick="fnLimpiarFiltrosVehiculos()">
+                        Limpiar filtros
+                    </button>
+
+                </div>
+
+                <div class="container"></div>
+
+            </section>
+
+        </main>
+
+
+
+    </div>
+
+    <script src="js/storage.js" defer></script>
+    <script src="js/vehiculos.js" defer></script>
+    <script src="js/clientes.js" defer></script>
+    <script src="js/alquileres.js" defer></script>
+    <script src="js/informes.js" defer></script>
+    <script src="js/usuarios.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+</body>
+
+</html>

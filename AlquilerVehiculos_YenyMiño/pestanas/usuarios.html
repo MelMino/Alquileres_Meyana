@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios Meyana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Usuarios -->
+
+    <section id="usuario" class="seccion gestion-usuarios seccion-privada">
+
+        <div class="encabezado-seccion">
+
+            <p class="etiqueta">PANEL DE ADMINISTRACIÓN</p>
+
+            <h2>Usuarios del sistema</h2>
+
+            <p>
+                Administrá las cuentas que pueden acceder a Meyana.
+            </p>
+
+        </div>
+
+        <div class="datos-sesion">
+
+            <p>
+                Sesión iniciada como:
+                <strong id="nombreUsuarioActual"></strong>
+            </p>
+
+            <button type="button" class="btn-eliminar" onclick="fnCerrarSesion()">
+                Cerrar sesión
+            </button>
+
+        </div>
+
+        <div id="divListaUsuarios">
+
+            <div class="barra-filtros">
+
+                <input type="text" id="txtFiltroUsuario" placeholder="Buscar por nombre o usuario..."
+                    oninput="fnFiltrarUsuarios()">
+
+                <button type="button" onclick="fnNuevoUsuario()">
+                    Nuevo usuario
+                </button>
+
+            </div>
+
+            <div id="divTablaUsuarios"></div>
+
+        </div>
+
+        <div id="divFormUsuario" style="display: none;">
+
+            <h3 id="tituloFormUsuario">Nuevo usuario</h3>
+
+            <form onsubmit="fnGuardarUsuario(event)">
+
+                <div class="form-grid">
+
+                    <div class="campo-formulario">
+                        <label for="txtNombreUsuario">
+                            Nombre completo
+                        </label>
+
+                        <input type="text" id="txtNombreUsuario" required minlength="3">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtUsuario">
+                            Nombre de usuario
+                        </label>
+
+                        <input type="text" id="txtUsuario" required minlength="3">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtPasswordUsuario">
+                            Contraseña
+                        </label>
+
+                        <input type="password" id="txtPasswordUsuario" minlength="6">
+                    </div>
+
+                </div>
+
+                <p id="ayudaPassword">
+                    Para crear un usuario, la contraseña debe tener
+                    al menos 6 caracteres.
+                </p>
+
+                <div class="acciones-gestion">
+
+                    <button type="submit">
+                        Guardar usuario
+                    </button>
+
+                    <button type="button" class="btn-eliminar" onclick="fnCancelarUsuario()">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <script src="../js/storage.js" defer></script>
+    <script src="../js/usuarios.js" defer></script>
+    <script src="../js/main.js" defer></script>
+
+</body>
+
+</html>

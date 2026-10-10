@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion Meyana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Administracion de vehiculso-->
+
+    <section class="gestion-vehiculos seccion-privada" id="administracion">
+
+        <div class="encabezado-seccion">
+
+            <p class="etiqueta">PANEL DE GESTIÓN</p>
+
+            <h2>Administración de vehículos</h2>
+
+            <p>
+                Registrá, consultá, editá y eliminá vehículos.
+            </p>
+
+        </div>
+
+        <div id="divListaVehiculos">
+
+            <div class="acciones-gestion">
+
+                <input type="text" id="txtFiltroVehiculo" placeholder="Buscar por marca o modelo..."
+                    oninput="fnFiltrarListaVehiculos()">
+
+                <button type="button" onclick="fnNuevoVehiculo()">
+                    + Agregar vehículo
+                </button>
+
+            </div>
+
+            <div id="divTablaVehiculos"></div>
+
+        </div>
+
+        <div id="divFormVehiculo" style="display: none;">
+
+            <h3 id="tituloFormVehiculo">Nuevo vehículo</h3>
+
+            <form onsubmit="fnGuardarVehiculo(event)">
+
+                <div class="form-grid">
+
+                    <div class="campo-formulario">
+                        <label for="txtMarca">Marca</label>
+                        <input type="text" id="txtMarca" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtModelo">Modelo</label>
+                        <input type="text" id="txtModelo" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtAnio">Año de fabricación</label>
+                        <input type="number" id="txtAnio" min="1900" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtColor">Color</label>
+                        <input type="text" id="txtColor" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtAsientos">
+                            Cantidad de asientos
+                        </label>
+                        <input type="number" id="txtAsientos" min="1" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtChapa">Número de chapa</label>
+                        <input type="text" id="txtChapa" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtPrecio">
+                            Costo de alquiler por día (Gs.)
+                        </label>
+                        <input type="number" id="txtPrecio" min="1" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="txtImagen">Ruta de la imagen</label>
+                        <input type="text" id="txtImagen" value="imagenes/naranjoso.jpeg" required>
+                    </div>
+
+                </div>
+
+                <div class="acciones-gestion">
+
+                    <button type="submit">
+                        Guardar vehículo
+                    </button>
+
+                    <button type="button" class="btn-eliminar" onclick="fnCancelarVehiculo()">
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <script src="../js/storage.js" defer></script>
+    <script src="../js/vehiculos.js" defer></script>
+    <script src="../js/clientes.js" defer></script>
+    <script src="../js/alquileres.js" defer></script>
+    <script src="../js/informes.js" defer></script>
+    <script src="../js/usuarios.js" defer></script>
+    <script src="../js/main.js" defer></script>
+
+
+
+</body>
+
+</html>

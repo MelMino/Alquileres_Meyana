@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes Meyana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <!-- Clientes -->
+
+        <section id="clientes" class="seccion seccion-privada">
+
+            <h2>Gestión de clientes</h2>
+
+            <p>
+                Administrá las personas que alquilan vehículos en Meyana.
+            </p>
+
+            <div id="divListaClientes">
+
+                <div class="barra-filtros">
+
+                    <input type="text" id="txtFiltroCliente" placeholder="Buscar por nombre o documento..."
+                        oninput="fnFiltrarListaClientes()">
+
+                    <button type="button" onclick="fnNuevoCliente()">
+                        Nuevo cliente
+                    </button>
+
+                </div>
+
+                <div id="divTablaClientes"></div>
+
+            </div>
+
+            <div id="divFormCliente" style="display: none;">
+
+                <h3 id="tituloFormCliente">Registrar cliente</h3>
+
+                <form onsubmit="fnGuardarCliente(event)">
+
+                    <div class="form-grid">
+
+                        <div class="campo">
+                            <label for="txtNombreCliente">Nombre completo</label>
+                            <input type="text" id="txtNombreCliente" required minlength="3">
+                        </div>
+
+                        <div class="campo">
+                            <label for="txtDocumentoCliente">
+                                Documento de identidad
+                            </label>
+                            <input type="text" id="txtDocumentoCliente" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="txtTelefonoCliente">Teléfono</label>
+                            <input type="tel" id="txtTelefonoCliente" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="txtCorreoCliente">
+                                Correo electrónico
+                            </label>
+                            <input type="email" id="txtCorreoCliente">
+                        </div>
+
+                        <div class="campo">
+                            <label for="txtDireccionCliente">Dirección</label>
+                            <input type="text" id="txtDireccionCliente">
+                        </div>
+
+                    </div>
+
+                    <div class="acciones-form">
+
+                        <button type="submit">
+                            Guardar cliente
+                        </button>
+
+                        <button type="button" class="btn-secundario" onclick="fnCancelarCliente()">
+                            Cancelar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+            <script src="../js/storage.js" defer></script>
+    <script src="../js/clientes.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>
